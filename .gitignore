@@ -1,0 +1,23 @@
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.vs
+.vs/
+
+# Local History for Visual Studio Code
+.history/
+
+obj/*
+bin/*
+bin
+obj
+
+# collection
+# artist
+# collection_match
+# artist_collection
+
+MediaData/.vs/
