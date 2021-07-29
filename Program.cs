@@ -8,9 +8,10 @@ namespace CSharpBestPractices
     {
         static void Main(string[] args)
         {
-            new ValueTypesMemoryManagement().ref_Return_Local();
-            new ValueTypesMemoryManagement().ref_Readonly_Return();
-
+            var refReturnLocal = new RefReturnLocal();
+            refReturnLocal.ref_Return_Local();
+            Console.WriteLine();
+            refReturnLocal.ref_Readonly_Return();
         }
     }
 }

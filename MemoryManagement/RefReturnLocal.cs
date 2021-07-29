@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpBestPractices.MemoryManagement
 {
     /// <summary>
+    /// Pass around Value types as if they were references to avoid runtime making copies
     /// - Allocatng reference type has COST, passing around is CHEAP
     /// - Allocating value type is CHEAP, passing around has COST (just cleaning the stack up, hard to pass around)
     /// 
@@ -16,7 +13,7 @@ namespace CSharpBestPractices.MemoryManagement
     /// 3. Pass by reference to avoid copies, enable modiyfing 
     /// 4. Minimize GC compacting
     /// </summary>
-    public class ValueTypesMemoryManagement
+    public class RefReturnLocal
     {
 
         public struct Point 
@@ -41,7 +38,7 @@ namespace CSharpBestPractices.MemoryManagement
 
         public ref Point GetLocationRef() => ref _location; // Get reference of the value type
 
-        public ref readonly Point GetLocationReadonlyRef() => ref _location; // Get reference of the value type
+        public ref readonly Point GetLocationReadonlyRef() => ref _location; // Get readonly reference of the value type
 
 
         /// <summary>
@@ -66,7 +63,7 @@ namespace CSharpBestPractices.MemoryManagement
         public void ref_Readonly_Return()
         {
 
-            ref var refValueType = ref GetLocationRef(); // Reference, but definve copies. Caller can not modify
+            ref var refValueType = ref GetLocationRef(); // Reference, will change since it is direct reference
             //refValueType += 5; // Compiler error
 
             refValueType.SetPointCoord(100);
@@ -74,7 +71,7 @@ namespace CSharpBestPractices.MemoryManagement
 
             _location = new Point(5);
 
-            ref readonly var refReadonlyValueType = ref GetLocationReadonlyRef(); // Reference, but definve copies. Caller can not modify
+            ref readonly var refReadonlyValueType = ref GetLocationReadonlyRef(); // Reference, but defensive copies made by compiler. Caller can not modify
             //refValueType += 5; // Compiler error
 
             refReadonlyValueType.SetPointCoord(100);
