@@ -23,18 +23,16 @@ namespace CSharpBestPractices.Performance
 
         }
 
-        public void IEnumLowering()
+        public void IEnumerableLowering()
         {
             var values = new MyThing();
-
-            
 
             /* The compiler just needs the IEnumerator implementation in order to compile */
             foreach (int m in values) // This will run as an invalid Cast Exception
             { }
 
             /* foreach vs for:
-               - The compiler actually intiates an extra array when using foreach vs for(i) \
+               - The compiler actually intiates an extra array when using foreach vs for(var i = 0)
             */
             int[] valuesArray = new int[6];
             for (int i = 0; i < valuesArray.Length; i++) // This will run as an invalid Cast Exception
