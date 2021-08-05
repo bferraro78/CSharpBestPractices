@@ -23,7 +23,7 @@ namespace CSharpBestPractices.MemoryManagement
             // 3. Params arguments
             MyParamsMethod("hello", "world");
             MyParamsMethod(); // Compiler does this => MyParamsMethod(Array.Empty<string>); The Compiler has automatically removes that allocation amount
-            // Solution: create method overloads if you know your method will take in N arguments, cutting out the allocation of N param arrays
+            // Solution: Create method overloads if you know your method will take in N arguments, cutting out the allocation of N param arrays
 
             // 4. Avoid Boxing - passing a value type (int, long, date, time span) as a reference to a function
             // Boxing will take the value object and create a new object on the Heap!

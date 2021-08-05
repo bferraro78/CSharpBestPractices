@@ -16,7 +16,7 @@ namespace CSharpBestPractices.MemoryManagement
 	///	○ Slicing - Create a new Span<T> with a sub section of a Span<T> WITH NO ALLOCATION
     ///            - If you want a substring or slice of array, without the allocation
     /// </summary>
-    public class RefStruct
+    public class SpanContiguousMemory
     {
 
         private const string TestString = "YoYoYo Ma";

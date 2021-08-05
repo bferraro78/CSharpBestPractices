@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpBestPractices.Semantics
+namespace CSharpBestPractices.Performance
 {
     public class ForEachCasting
     {

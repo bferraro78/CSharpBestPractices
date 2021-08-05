@@ -16,6 +16,9 @@ namespace CSharpBestPractices.MemoryManagement
     public class RefReturnLocal
     {
 
+        /// <summary>
+        /// Struct are Value Types. When passed into a function, a copy is made...can be bad for memory performance if struct is large.
+        /// </summary>
         public struct Point 
         {
             public int _coord; // State field - the value type we pass around as a reference in this example
@@ -50,7 +53,7 @@ namespace CSharpBestPractices.MemoryManagement
             valueType += 5;
             Console.WriteLine("coord will be 5, since we retrieved location as a value. Value {0}", _location._coord);
 
-            ref var refValueType = ref GetLocationRef()._coord; // refValueType is a ref local. Aka a reference of Global int
+            ref var refValueType = ref GetLocationRef()._coord; // refValueType is a ref local. Aka a reference of Global struct type
             refValueType += 5;
             Console.WriteLine("coord will be 10, since we gathered a reference of location and changed its state. Value {0}", _location._coord);
         }
